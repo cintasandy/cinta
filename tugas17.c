@@ -1,21 +1,32 @@
 #include <stdio.h>
- #include <time.h>
- #include <limits.h>
- int main() {
- time_t starttime, endtime;
- struct tm starttm, endtm;
- double seconds;
- starttime = time (NULL);
- starttm = *localtime (&starttime);
- /* awal proses */
- unsigned int i;
- for (i=0; i<40000000; i++)  {
- ;
+ #include <stdbool.h>
+ bool istab(int c) {
+ return c == '\t';
  }
- /* akhir proses */
- endtime = time (NULL);
- endtm = *localtime (&endtime);
- seconds = difftime (mktime (&endtm), mktime (&starttm));
- printf ("Waktu eksesuksi: %.4lf detik\n", seconds);
+ /*ganti karakter tab’ mengawali string */
+ void replacetab(char *s) {
+ while (*s != '\0') {
+ if (istab(*s)) {
+ *s = ' '; /* spasi */
+ }
+ s++;
+ }
+ }
+void printwithnotab(char *s) {
+ while (*s != '\0') {
+ if (istab(*s)) {
+ printf("\\t");
+ } else {
+ printf("%c", *s);
+ }
+ s++;
+ }
+ }
+ int main() {
+ char str[] = "C\tC++\tPython\tPerl\tRuby\tPHP";
+ printf("Sebelum diganti: ");
+ printwithnotab(str);
+ replacetab(str);
+ printf("\nSetelah diganti:%s\n", str);
  return 0;
  }

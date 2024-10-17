@@ -1,12 +1,12 @@
- #include <stdio.h>
- int main ()   {
- double a = 123.456789;
- double b = 12345.6789;
- printf ("%16.101f\n",a);
- printf ("%16.61f\n",a);
- printf ("%16.21f\n",a);
- printf ("%16.101f\n",b);
- printf ("%16.61f\n",b);
- printf ("%16.21f\n",a);
+#include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+ int main() {
+ char *os1 = "Linux\0";
+ char *os2 = "windows\0";
+ printf("os1: %s\n", os1);
+ printf("os2: %s\n", os2);
+ printf("Jumlah karakter dalam os1: %ld\n", strlen (os1));
+ printf("Jumlah karakter dalam os2: %ld\n", strlen (os2));
  return 0;
  }

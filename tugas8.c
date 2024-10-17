@@ -1,10 +1,14 @@
-#include <stdio.h>
- #include <math.h>
- int main()   {
- double val = 123.416128;
- printf("val : %lf\n", val);
- printf ("round (val) : %.0lf\n", round (val));
- printf ("ceil (val) : %.0lf\n", ceil (val));
- printf ("floor (val) : %.0lf\n", floor (val));
+ #include <stdio.h>
+ #include <string.h>
+ int main(){
+ char os1[30] = "Linux";
+ char os2[13] = " dan Windows";
+ printf("Sebelum disambung:\n");
+ printf("os1: %s\n", os1);
+ printf("os2: %s\n\n", os2);
+ /* menyambung os2 ke os1 */
+ strcat(os1, os2);
+ printf("Setelah disambung:\n");
+ printf("os1: %s\n", os1);
  return 0;
  }

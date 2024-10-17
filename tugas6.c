@@ -1,20 +1,21 @@
- #include <stdio.h>
- #include <stdlib.h>
- #include <limits.h>
+#include <stdio.h>
  #include <string.h>
- char *inttostr (long long n){
- int digits = 20 + 1;
- char *result = (char*) malloc(digits);
- snprintf (result, digits, "%lld", n);
- return result;
+ int indexOfChar(char *s, char c){
+ int i = 0;
+ while (s[i] != '\0'){
+ if (s[i] == c){
+ return i;
  }
-  int main()
- {
- printf("Hasil konversi : %s\n", inttostr(CHAR_MIN));
- printf ("Lebar strinng: %ld\n\n", strlen(inttostr (CHAR_MIN)));
- printf ("Hasil konversi : %s\n", inttostr (INT_MAX));
- printf ("Lebar string: %ld\n\n", strlen (inttostr (INT_MAX)));
- printf ("Hasil konversi: %s\n", inttostr (LLONG_MAX));
- printf ("Lebar string: %ld\n", strlen (inttostr (LLONG_MAX)));
+ i++;
+ }
+ return -1;
+ }
+  int main() {
+ char *os = "Linux";
+ printf("os: %s\n", os);
+ printf(" Karakter \'%c\' pertama ditemukan pada indexs ke-%d\n",
+ 'L', indexOfChar(os, 'L'));
+ printf(" Karakter \'%c\' pertama ditemukan pada indexs ke-%d\n",
+ 'u', indexOfChar(os, 'u'));
  return 0;
  }

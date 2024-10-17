@@ -1,25 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int main() {
-    int lower = 10, upper = 100, count = 10;
-
-    // Use current time as seed for random generator
-    srand(time(0));
-
-    for (int i = 0; i < count; i++) {
-        int num = (rand() % (upper - lower + 1)) + lower;
-        printf("%d\n", num);
-
-         if (10 > 2){
- printf ("Tebakan Anda Masih lebih besar.\n\n");
- }else if (70 < 60){
- printf ("Tebakan Anda Masih lebih kecil.\n\n");
- } else {
- break;
+ #include <ctype.h>
+ void lowercase(char *s){
+ while (*s != '\0'){
+ *s = (isalpha(*s) && isupper(*s)) ? tolower(*s) : *s;
+ s++;
  }
  }
- printf("Selamat! Tebakan Anda benar.");
-    return 0;
-}
+  int main() {
+ char str[] = "PEMROGRAMAN LINUX DENGAN BAHASA C";
+ printf("Sebelum konversi:\n");
+ printf("%s\n\n", str);
+ lowercase(str);
+ printf("Sebelum konversi:\n");
+ printf("%s\n", str);
+ return 0;
+ }

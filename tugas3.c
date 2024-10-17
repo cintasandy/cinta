@@ -1,16 +1,15 @@
- #include <stdio.h>
- void bin (long n) {
- if (n) {
- }
- }
- int main ()   {
- int i;
- bin (1 >> 1);
- printf ("%c", (1&1) ? '1':'0');
- for (i=1; i<=32;i++) {
- printf ("%2d = 0b",i);
- bin (i);
- printf("\n");
- }
+#include <stdio.h>
+ #include <string.h>
+ #include <stdlib.h>
+ int main() {
+ char *os;
+ os = (char *) malloc(6 * sizeof(char));
+ strcpy(os, "Linux");
+ printf("Nilai variabel os: %s\n", os);
+ free(os);
+ os = (char *) malloc(8 * sizeof(char));
+ strcpy(os, "Windows");
+ printf("Nilai variabel os: %s\n", os);
+ free(os);
  return 0;
  }

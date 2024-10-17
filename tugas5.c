@@ -1,20 +1,16 @@
-#include <stdio.h>
- #include <limits.h>
- #include <float.h>
- int main()    {
- printf ("%-20s: %d..%d\n","char",CHAR_MIN, CHAR_MAX);
- printf ("%-20s: %d..%d\n","signed char",SCHAR_MIN, SCHAR_MAX);
- printf ("%-20s: %d..%d\n","unsigend char", 0, UCHAR_MAX);
- printf ("%-20s: %d..%d\n","short",SHRT_MIN, SHRT_MAX);
- printf ("%-20s: %d..%d\n","unsigned short",0,USHRT_MAX);
- printf ("%-20s: %d..%d\n","int", INT_MIN, INT_MAX);
- printf ("%-20s: %d..%u\n","unsigned int",0,UINT_MAX);
-  printf ("%-20s: %ld..%ld\n","long", LONG_MIN, LONG_MAX);
- printf ("%-20s: %d..%lu\n","unsigned long",0,ULONG_MAX);
- printf ("%-20s: %lld..%lld\n","long long", LLONG_MIN, LLONG_MAX);
- printf ("%-20s: %d..%llu\n","unsigned long long",0,ULLONG_MAX);
- printf ("%-20s: %e..%e\n","float", FLT_MIN, FLT_MAX);
- printf("%-20s: %e..%e\n","double", DBL_MIN, DBL_MAX);
- printf("%-20s: %Le..%Le\n","long double", LDBL_MIN, LDBL_MAX);
+ #include <stdio.h>
+ #include <string.h>
+ char charAt(char *s,int i){
+ if (i> -1 && i < strlen(s)){
+ return s[i];
+ }
+ return -1;
+ }
+ int main(){
+ char os [6] = "Linux" ;
+ int index = 3; /* indeks yang akan digunakan untuk pencarian */
+ char c = charAt(os, index);
+ printf("os: %s\n", os);
+ printf("karakter pada indeks ke-%d adalah: \'%c\'\n", index, c);
  return 0;
  }

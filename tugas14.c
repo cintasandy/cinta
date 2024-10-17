@@ -1,22 +1,21 @@
-#include <stdio.h>
- #include <time.h>
- const char * const HARI [7] =
- {"Minggu","Senin","Selasa","Rabu","Kamis","Jumat","Sabtu"};
- const char * const BULAN [12] =
- {"Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"};
-int main()    {
- time_t t;
- struct tm now;
-t = time (NULL);
- now = *localtime (&t);
- printf("Tanggal dan Waktu Saat ini:\n");
- printf("%s, %d %s %d %d:%d:%d\n",
- HARI [now.tm_wday],
- now.tm_mday,
- BULAN [now.tm_mon],
- now.tm_year + 1900,
- now.tm_hour,
- now.tm_min,
- now.tm_sec);
+ #include <stdio.h>
+ #include <string.h>
+ int main() {
+ int i =0;
+ char str[100] = "C C++, C#;Java:Perl;Python|Ruby";
+ char A[7][8];
+ char delimiters[] = " ,;:I";
+ printf("String:\n\"%s\"\n\n", str);
+  /* memecahstring menjadi daftar token */
+ char *token = strtok(str, delimiters);
+ while (token){
+ strcpy(A[i++],token);
+ token = strtok(NULL, delimiters);
+ }
+ printf("Array:\n");
+ /* menampilakn daftar token di dalam array */
+ for (i=0; i<7; i++){
+ printf("A[%d]: %s\n", i, A[i]);
+ }
  return 0;
  }

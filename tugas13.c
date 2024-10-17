@@ -1,16 +1,21 @@
  #include <stdio.h>
- #include <time.h>
- int main()     {
- time_t t;
- struct tm now;
- t = time (NULL);
- now = *localtime (&t);
- printf("Tanggal dan waktu saat ini\n");
- printf("Hari ke- : %d\n", now.tm_mday);
- printf("Bulan : %d\n", now.tm_mon + 1);
- printf("Tahun : %d\n", now.tm_year + 1900);
- printf("Jam : %d\n", now.tm_hour);
- printf("Menit : %d\n", now.tm_min);
- printf("Detik : %d\n", now.tm_sec);
+ #include <ctype.h>
+ #include <string.h>
+ void strreverse(char *s){
+ char buffer[strlen(s)+1];
+ int i,j=0;
+ for (i=strlen(s)-1; i>=0; i--){
+ buffer[j++] = s[i];
+ }
+ buffer[j+1] = '\0';
+ strcpy(s, buffer);
+ }
+ int main(){
+ int i;
+ char str[] = "AKITAMROFNI";
+ printf("Sebelum dibalik: %s\n", str);
+ /* membalik urutan karakter di dalam str */
+ strreverse(str);
+  printf("Setelah dibalik: %s\n", str);
  return 0;
  }
